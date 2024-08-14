@@ -1,55 +1,104 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" type="text/javascript" 
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
-</script>
-
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anand Kumar - Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <input type="button" onclick="getData()" value="MIS Application">
-<div id="divId"></div>
-<div id="divId1"></div>
+    <header>
+        <div class="container">
+            <h1>Anand Kumar</h1>
+            <p>Web Developer | Java | Spring Framework | ReactJS</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a dedicated Web Developer with expertise in backend development using Java and Spring Framework, and frontend technologies including HTML, CSS, JavaScript, and ReactJS. I have a proven track record of enhancing digitalization and reducing reliance on traditional data storage methods through innovative web applications. I am also certified in AWS Cloud Foundations and Data Analytics with Python.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <h3>Java</h3>
+                </div>
+                <div class="skill">
+                    <h3>Spring Framework</h3>
+                </div>
+                <div class="skill">
+                    <h3>ReactJS</h3>
+                </div>
+                <div class="skill">
+                    <h3>HTML, CSS, JavaScript</h3>
+                </div>
+                <div class="skill">
+                    <h3>MySQL, MongoDB</h3>
+                </div>
+                <div class="skill">
+                    <h3>AWS Cloud</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3>Automated Challan System</h3>
+                    <p>Developed an Automated Challan System using Java, SQL, and JDBC for backend processing, and HTML, CSS, and JavaScript for the frontend interface. The system streamlined the creation and management of challans, reducing manual errors and improving efficiency.</p>
+                </div>
+                <div class="project">
+                    <h3>Facial Expression Detection</h3>
+                    <p>Developed a Facial Expression Detection system using Python, OpenCV, TensorFlow, and Keras. Implemented deep learning models to accurately identify and classify various facial expressions from real-time video feeds and images.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form action="submit_form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Anand Kumar. All rights reserved.</p>
+            <p>
+                <a href="https://www.linkedin.com/in/anand-kumar-51b521194">LinkedIn</a> | 
+                <a href="https://www.hackerrank.com/profile/anandkumar292000">HackerRank</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-<script>
-var data={};
-    function getData(){
-    
-$.ajax({
-	 url : "./home",
-		 type: "GET",
-		 data : data,
-		 success: function(result){	
-            var resturnStr="";
-			 console.log(result);
-             result.forEach(element => {
-resturnStr+="<tr><td>"+element.id+"</td><td>"+element.name+"</td><td>"+element.address+"</td></tr>";
-                 
-             });
-				
-			$("#divId").html("<table>"+resturnStr+"</table>"); 		
-		  
-		  }
-});
-    }
-    $.ajax({
-   	 url : "./getObj",
-   		 type: "GET",
-   		 data : data,
-   		 success: function(result){
-   			 console.log(result["id"]);
-   			alert(result.isSuccess); 
-   		 }
-   		 });
-
-
-</script>
 </html>
